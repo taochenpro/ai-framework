@@ -7,23 +7,23 @@ Route work so weaker agents can execute one bounded task with minimal context.
 ## Reads
 
 - `AGENTS.md`
-- `config/routing.yaml`
-- `memory/tasks.yaml`
-- `memory/locks.yaml`
+- `.agents/config/routing.yaml`
+- `.agents/memory/tasks.yaml`
+- `.agents/memory/locks.yaml`
 - Relevant workflow file
 
 ## Writes
 
-- `memory/tasks.yaml`
-- `memory/task-packets/*.yaml`
-- `memory/locks.yaml`
-- `memory/events.md`
+- `.agents/memory/tasks.yaml`
+- `.agents/memory/task-packets/*.yaml`
+- `.agents/memory/locks.yaml`
+- `.agents/memory/events.md`
 
 ## Rules
 
 - Create or update a task packet before assigning implementation, review, or DevOps work.
 - Assign exactly one primary agent per active task.
-- Add specialist agents and skill files only from `config/routing.yaml`.
+- Add specialist agents and skill files only from `.agents/config/routing.yaml`.
 - Keep `read_first` short and task-specific.
 - Keep `allowed_files` explicit.
 - Mark unclear work as `blocked`, not `ready`.

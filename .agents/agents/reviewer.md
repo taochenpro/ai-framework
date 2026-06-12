@@ -15,8 +15,8 @@ Review one completed task for correctness, test value, maintainability, and rele
 ## Writes
 
 - Review findings in the response or review artifact requested by the task packet
-- `memory/events.md`
-- Task status recommendation for `memory/tasks.yaml`
+- `.agents/memory/events.md`
+- Task status recommendation for `.agents/memory/tasks.yaml`
 
 ## Rules
 

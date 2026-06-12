@@ -8,15 +8,15 @@ Implement one task packet with scoped edits and meaningful tests.
 
 - `AGENTS.md`
 - This file
-- One task packet from `memory/task-packets/`
+- One task packet from `.agents/memory/task-packets/`
 - Only docs and files listed in `read_first`
 
 ## Writes
 
 - Files listed in `allowed_files`
 - Tests listed in `allowed_files`
-- `memory/events.md`
-- Task status notes for `memory/tasks.yaml`
+- `.agents/memory/events.md`
+- Task status notes for `.agents/memory/tasks.yaml`
 
 ## Rules
 

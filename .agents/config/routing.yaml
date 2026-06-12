@@ -1,0 +1,50 @@
+version: 1
+
+default_routes:
+  planning:
+    agent: .agents/agents/planner.md
+    workflow: .agents/workflows/task-flow.md
+  implementation:
+    agent: .agents/agents/builder.md
+    workflow: .agents/workflows/task-flow.md
+  review:
+    agent: .agents/agents/reviewer.md
+    workflow: .agents/workflows/review-flow.md
+  automation:
+    agent: .agents/agents/devops.md
+    workflow: .agents/workflows/task-flow.md
+
+# Add project-specific agents and skill files here. The Coordinator may only
+# assign specialists or require skill context that is registered in this map.
+#
+# Example:
+# specialist_routes:
+#   database:
+#     triggers:
+#       - schema
+#       - migration
+#       - query
+#       - postgres
+#     agent: .agents/agents/db-designer.md
+#     read_first:
+#       - .agents/skills/database-design.md
+#       - .agents/docs/data-model.md
+#   react:
+#     triggers:
+#       - react
+#       - component
+#       - frontend
+#     agent: .agents/agents/react-builder.md
+#     read_first:
+#       - .agents/skills/react.md
+#       - .agents/docs/frontend-architecture.md
+#   figma:
+#     triggers:
+#       - figma
+#       - mockup
+#       - design
+#     agent: .agents/agents/figma-designer.md
+#     read_first:
+#       - .agents/skills/figma.md
+#       - .agents/docs/ui-design.md
+specialist_routes: {}

@@ -10,7 +10,7 @@ TBD
 
 - Use the simplest design that satisfies current requirements.
 - Preserve public contracts unless a decision record approves a change.
-- Record material architecture decisions in `memory/decisions/`.
+- Record material architecture decisions in `.agents/memory/decisions/`.
 - Make critical behavior testable.
 
 ## Modules

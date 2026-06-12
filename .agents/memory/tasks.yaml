@@ -13,11 +13,11 @@ tasks:
   - id: T-0001
     title: Initialize concrete project backlog
     status: proposed
-    primary_agent: agents/coordinator.md
+    primary_agent: .agents/agents/coordinator.md
     task_packet: null
     priority: medium
     dependencies: []
     acceptance_criteria:
-      - Project-specific requirements are captured in docs/requirements.md.
-      - First implementation tasks have task packets in memory/task-packets/.
+      - Project-specific requirements are captured in .agents/docs/requirements.md.
+      - First implementation tasks have task packets in .agents/memory/task-packets/.
     notes: Replace this starter task when a concrete project begins.

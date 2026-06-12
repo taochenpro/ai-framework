@@ -1,0 +1,29 @@
+version: 2
+project_name: codex-projects-framework
+
+runtime_principle: "Load one task packet, one primary agent, and only listed context."
+
+agents:
+  coordinator: .agents/agents/coordinator.md
+  planner: .agents/agents/planner.md
+  builder: .agents/agents/builder.md
+  reviewer: .agents/agents/reviewer.md
+  devops: .agents/agents/devops.md
+
+workflows:
+  task_flow: .agents/workflows/task-flow.md
+  review_flow: .agents/workflows/review-flow.md
+
+memory:
+  tasks: .agents/memory/tasks.yaml
+  task_packets: .agents/memory/task-packets
+  events: .agents/memory/events.md
+  locks: .agents/memory/locks.yaml
+  decisions: .agents/memory/decisions
+
+quality_gates:
+  require_task_packet_for_ready: true
+  require_one_primary_agent: true
+  require_allowed_files: true
+  require_tests_for_src_changes: true
+  require_review_before_done: true

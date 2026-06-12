@@ -1,17 +1,17 @@
 id: T-0000
 goal: "One concrete outcome."
-workflow: workflows/task-flow.md
-primary_agent: agents/builder.md
+workflow: .agents/workflows/task-flow.md
+primary_agent: .agents/agents/builder.md
 required_specialists: []
 # Put project-specific skill files in read_first after registering them in
-# config/routing.yaml. Example: skills/react.md.
+# .agents/config/routing.yaml. Example: .agents/skills/react.md.
 
 status: ready
 
 read_first:
   - AGENTS.md
-  - agents/builder.md
-  - docs/testing-strategy.md
+  - .agents/agents/builder.md
+  - .agents/docs/testing-strategy.md
 
 allowed_files:
   - src/
@@ -24,7 +24,7 @@ verification:
   required:
     - "Run configured tests or explain why not."
   commands:
-    - "hooks/ci-check"
+    - ".agents/hooks/ci-check"
   manual: []
 
 constraints:
@@ -35,8 +35,8 @@ done_checklist:
   - "Failing test existed first, or manual verification reason is documented."
   - "Implementation satisfies acceptance criteria."
   - "Checks pass or failures are documented."
-  - "memory/tasks.yaml and memory/events.md are updated."
+  - ".agents/memory/tasks.yaml and .agents/memory/events.md are updated."
 
 handoff:
-  reviewer: agents/reviewer.md
+  reviewer: .agents/agents/reviewer.md
   notes: ""

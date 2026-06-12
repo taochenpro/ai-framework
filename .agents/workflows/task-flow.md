@@ -4,9 +4,9 @@ Use this for features, bugs, refactors, and project setup.
 
 ## Steps
 
-1. Coordinator records or updates the task in `memory/tasks.yaml`.
+1. Coordinator records or updates the task in `.agents/memory/tasks.yaml`.
 2. Planner clarifies requirements, acceptance criteria, risks, and architecture impact when needed.
-3. Coordinator creates a task packet in `memory/task-packets/`.
+3. Coordinator creates a task packet in `.agents/memory/task-packets/`.
 4. Builder implements only the packet scope.
 5. Coordinator moves the task to `review`.
 6. Reviewer checks the completed work.

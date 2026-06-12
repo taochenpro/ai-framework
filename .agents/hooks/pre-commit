@@ -4,7 +4,7 @@ set -eu
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
-CONFIG="${FRAMEWORK_AUTOMATION_ENV:-config/automation.env}"
+CONFIG="${FRAMEWORK_AUTOMATION_ENV:-.agents/config/automation.env}"
 if [ -f "$CONFIG" ]; then
   # shellcheck disable=SC1090
   . "$CONFIG"
@@ -47,4 +47,3 @@ run_if_set "lint" "${LINT_CMD:-}"
 run_if_set "tests" "${TEST_CMD:-}"
 
 echo "pre-commit: passed"
-

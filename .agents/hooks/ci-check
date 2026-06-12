@@ -4,7 +4,7 @@ set -eu
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 cd "$ROOT"
 
-CONFIG="${FRAMEWORK_AUTOMATION_ENV:-config/automation.env}"
+CONFIG="${FRAMEWORK_AUTOMATION_ENV:-.agents/config/automation.env}"
 if [ -f "$CONFIG" ]; then
   # shellcheck disable=SC1090
   . "$CONFIG"
@@ -30,7 +30,7 @@ run_step() {
   fi
 }
 
-for required_file in AGENTS.md config/framework.yaml config/routing.yaml memory/tasks.yaml memory/events.md memory/locks.yaml workflows/task-flow.md workflows/review-flow.md docs/requirements.md docs/architecture.md docs/testing-strategy.md; do
+for required_file in AGENTS.md .agents/config/framework.yaml .agents/config/routing.yaml .agents/memory/tasks.yaml .agents/memory/events.md .agents/memory/locks.yaml .agents/workflows/task-flow.md .agents/workflows/review-flow.md .agents/docs/requirements.md .agents/docs/architecture.md .agents/docs/testing-strategy.md; do
   [ -f "$required_file" ] || fail "missing required framework file: $required_file"
 done
 
