@@ -1,0 +1,19 @@
+name: Framework CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run framework CI hook
+        shell: bash
+        run: |
+          chmod +x hooks/ci-check
+          hooks/ci-check
+

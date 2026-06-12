@@ -1,0 +1,24 @@
+version: 1
+
+delivery_metrics:
+  - lead_time
+  - cycle_time
+  - blocked_time
+  - review_rework_count
+
+quality_metrics:
+  - escaped_defects
+  - regression_test_added_for_bug
+  - flaky_test_count
+  - ci_failure_recurrence
+
+coordination_metrics:
+  - stale_lock_count
+  - conflicting_edit_count
+  - handoff_reopen_count
+
+self_evolution_metrics:
+  - accepted_improvement_count
+  - rejected_improvement_count
+  - improvement_validation_result
+
