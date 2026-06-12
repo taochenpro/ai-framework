@@ -1,40 +1,29 @@
-version: 1
+version: 2
 project_name: codex-projects-framework
 
-task_states:
-  - proposed
-  - ready
-  - in_progress
-  - blocked
-  - review
-  - done
+runtime_principle: "Load one task packet, one primary agent, and only listed context."
 
 agents:
-  product_requirements: agents/product-requirements-agent.md
-  system_architect: agents/system-architect-agent.md
-  developer: agents/developer-agent.md
-  code_review: agents/code-review-agent.md
-  test_engineer: agents/test-engineer-agent.md
-  devops: agents/devops-agent.md
-  project_coordinator: agents/project-coordinator-agent.md
+  coordinator: agents/coordinator.md
+  planner: agents/planner.md
+  builder: agents/builder.md
+  reviewer: agents/reviewer.md
+  devops: agents/devops.md
 
 workflows:
-  idea_to_release: workflows/idea-to-release.md
-  bug_fix_cycle: workflows/bug-fix-cycle.md
-  feature_enhancement: workflows/feature-enhancement-flow.md
-  parallel_agent_execution: workflows/parallel-agent-execution.md
+  task_flow: workflows/task-flow.md
+  review_flow: workflows/review-flow.md
 
 memory:
   tasks: memory/tasks.yaml
-  locks: memory/coordination/locks.yaml
-  progress: memory/progress.md
-  knowledge: memory/knowledge.md
+  task_packets: memory/task-packets
+  events: memory/events.md
+  locks: memory/locks.yaml
   decisions: memory/decisions
-  evolution_log: memory/evolution-log.md
 
 quality_gates:
-  require_source_test_pair: true
-  require_acceptance_criteria_before_implementation: true
-  require_decision_record_for_architecture_change: true
+  require_task_packet_for_ready: true
+  require_one_primary_agent: true
+  require_allowed_files: true
+  require_tests_for_src_changes: true
   require_review_before_done: true
-

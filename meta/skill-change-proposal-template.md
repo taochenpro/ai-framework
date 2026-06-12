@@ -1,4 +1,4 @@
-# Skill or Agent Change Proposal
+# Framework Improvement Proposal
 
 ## Proposal ID
 
@@ -6,7 +6,7 @@ P-YYYYMMDD-001
 
 ## Target
 
-Agent, skill, workflow, hook, config, or documentation to change.
+Agent, route, workflow, hook, config, task packet rule, or documentation to change.
 
 ## Evidence
 
@@ -31,4 +31,3 @@ Explain how the change will be tested against a realistic task or past failure.
 ## Decision
 
 Accepted, rejected, or deferred.
-

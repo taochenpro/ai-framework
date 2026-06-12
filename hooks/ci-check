@@ -30,7 +30,7 @@ run_step() {
   fi
 }
 
-for required_file in AGENTS.md memory/tasks.yaml docs/requirements.md docs/architecture.md docs/testing-strategy.md; do
+for required_file in AGENTS.md config/framework.yaml config/routing.yaml memory/tasks.yaml memory/events.md memory/locks.yaml workflows/task-flow.md workflows/review-flow.md docs/requirements.md docs/architecture.md docs/testing-strategy.md; do
   [ -f "$required_file" ] || fail "missing required framework file: $required_file"
 done
 
@@ -42,4 +42,3 @@ run_step "build" "${BUILD_CMD:-}" "${REQUIRE_BUILD:-0}"
 run_step "security check" "${SECURITY_CHECK_CMD:-}" "${REQUIRE_SECURITY_CHECK:-0}"
 
 echo "ci-check: passed"
-

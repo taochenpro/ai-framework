@@ -1,0 +1,42 @@
+id: T-0000
+goal: "One concrete outcome."
+workflow: workflows/task-flow.md
+primary_agent: agents/builder.md
+required_specialists: []
+# Put project-specific skill files in read_first after registering them in
+# config/routing.yaml. Example: skills/react.md.
+
+status: ready
+
+read_first:
+  - AGENTS.md
+  - agents/builder.md
+  - docs/testing-strategy.md
+
+allowed_files:
+  - src/
+  - tests/
+
+acceptance_criteria:
+  - "Observable condition that must be true."
+
+verification:
+  required:
+    - "Run configured tests or explain why not."
+  commands:
+    - "hooks/ci-check"
+  manual: []
+
+constraints:
+  - "Do not edit files outside allowed_files."
+  - "Do not change architecture, public API, dependencies, or deployment unless listed here."
+
+done_checklist:
+  - "Failing test existed first, or manual verification reason is documented."
+  - "Implementation satisfies acceptance criteria."
+  - "Checks pass or failures are documented."
+  - "memory/tasks.yaml and memory/events.md are updated."
+
+handoff:
+  reviewer: agents/reviewer.md
+  notes: ""

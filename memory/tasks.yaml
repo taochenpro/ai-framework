@@ -1,32 +1,23 @@
-version: 1
+version: 2
 updated_at: null
 
-task_schema:
-  id: "Stable task ID, for example T-0001."
-  title: "Short action-oriented title."
-  status: "proposed | ready | in_progress | blocked | review | done"
-  owner: "Exactly one owning agent while active."
-  agents: "Supporting agents involved."
-  priority: "low | medium | high | critical"
-  files: "Expected files or domains touched."
-  dependencies: "Task IDs that must complete first."
-  acceptance_criteria: "Observable conditions required for done."
-  notes: "Important context, blockers, or handoff details."
+states:
+  - proposed
+  - ready
+  - in_progress
+  - blocked
+  - review
+  - done
 
 tasks:
   - id: T-0001
-    title: Initialize project backlog
+    title: Initialize concrete project backlog
     status: proposed
-    owner: project-coordinator-agent
-    agents:
-      - product-requirements-agent
+    primary_agent: agents/coordinator.md
+    task_packet: null
     priority: medium
-    files:
-      - docs/requirements.md
-      - memory/tasks.yaml
     dependencies: []
     acceptance_criteria:
-      - Initial product goals are captured in docs/requirements.md.
-      - First implementation tasks have clear acceptance criteria.
-    notes: Replace or close this starter task when a concrete project begins.
-
+      - Project-specific requirements are captured in docs/requirements.md.
+      - First implementation tasks have task packets in memory/task-packets/.
+    notes: Replace this starter task when a concrete project begins.

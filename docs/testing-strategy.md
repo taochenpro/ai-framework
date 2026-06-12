@@ -1,43 +1,30 @@
 # Testing Strategy
 
-## Philosophy
+Use tests to protect behavior and guide implementation.
 
-Use TDD for production behavior. Tests should prove important behavior, not decorate the codebase.
+## TDD Loop
 
-## Test Selection
+1. Write or identify a failing test.
+2. Confirm it fails for the expected reason.
+3. Implement the smallest useful change.
+4. Confirm the test passes.
+5. Refactor only while tests stay green.
 
-Prioritize:
+## Prioritize
 
 - Business-critical rules.
-- Confirmed bug regressions.
+- Bug regressions.
 - Public contracts and integration boundaries.
 - Authorization, validation, persistence, and error handling.
-- Risky edge cases and failure modes.
+- Risky edge cases.
 
-Avoid:
+## Avoid
 
 - Tests that mirror implementation details.
 - Tests that assert framework behavior.
 - Broad snapshots without meaningful assertions.
-- Tests added only to increase coverage metrics.
-
-## Test Layers
-
-- Unit tests verify pure logic and local decisions.
-- Integration tests verify boundaries between modules, persistence, services, or APIs.
-- End-to-end tests verify critical user journeys only.
-- Contract tests verify shared interfaces.
-- Regression tests prove fixed bugs stay fixed.
-
-## TDD Loop
-
-1. Write a failing test for the behavior.
-2. Confirm it fails for the expected reason.
-3. Implement the smallest useful change.
-4. Confirm the test passes.
-5. Refactor while keeping tests green.
+- Coverage-only tests.
 
 ## Done Standard
 
-A task is not done until relevant high-value tests pass or the reason automation is not feasible is documented and accepted.
-
+A Builder task is not done until relevant tests pass or the task packet documents why automated verification is not practical.

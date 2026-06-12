@@ -1,37 +1,30 @@
 # Architecture
 
+Keep only durable architecture here. Put implementation detail in task packets.
+
 ## Overview
 
-Describe the system shape, major modules, and runtime model.
+TBD
 
 ## Principles
 
-- Keep architecture as simple as current requirements allow.
-- Prefer explicit boundaries and stable contracts.
-- Record material tradeoffs in `memory/decisions/`.
+- Use the simplest design that satisfies current requirements.
+- Preserve public contracts unless a decision record approves a change.
+- Record material architecture decisions in `memory/decisions/`.
 - Make critical behavior testable.
 
 ## Modules
 
-| Module | Responsibility | Owner | Notes |
-| --- | --- | --- | --- |
-| TBD | TBD | TBD | TBD |
-
-## Data Flow
-
-Describe key data paths, inputs, outputs, persistence, and integration boundaries.
-
-## Interfaces and Contracts
-
-Document public APIs, events, schemas, files, queues, or service contracts.
-
-## Operational Model
-
-Document build, runtime, deployment, configuration, secrets, observability, and rollback assumptions.
-
-## Risks
-
-| Risk | Impact | Mitigation |
+| Module | Responsibility | Notes |
 | --- | --- | --- |
 | TBD | TBD | TBD |
 
+## Interfaces
+
+TBD
+
+## Risks
+
+| Risk | Mitigation |
+| --- | --- |
+| TBD | TBD |

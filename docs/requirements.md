@@ -1,41 +1,25 @@
 # Requirements
 
+Keep this file concise. Put task-specific detail in task packets.
+
 ## Product Summary
 
-Describe the product, problem, and intended users.
+TBD
 
 ## Goals
 
-- Goal 1:
-- Goal 2:
+- TBD
 
 ## Non-Goals
 
-- Non-goal 1:
-- Non-goal 2:
+- TBD
 
-## Users and Jobs
-
-| User | Job To Be Done | Success Signal |
-| --- | --- | --- |
-| TBD | TBD | TBD |
-
-## Functional Requirements
+## Requirements
 
 | ID | Requirement | Acceptance Criteria | Priority |
 | --- | --- | --- | --- |
 | R-001 | TBD | TBD | medium |
 
-## Non-Functional Requirements
-
-- Performance:
-- Security:
-- Reliability:
-- Accessibility:
-- Observability:
-- Compliance:
-
 ## Open Questions
 
-- None recorded yet.
-
+- None.
