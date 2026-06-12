@@ -1,0 +1,39 @@
+version: 1
+project_name: codex-projects-framework
+
+task_states:
+  - proposed
+  - ready
+  - in_progress
+  - blocked
+  - review
+  - done
+
+agents:
+  product_requirements: .agents/agents/product-requirements-agent.md
+  system_architect: .agents/agents/system-architect-agent.md
+  developer: .agents/agents/developer-agent.md
+  code_review: .agents/agents/code-review-agent.md
+  test_engineer: .agents/agents/test-engineer-agent.md
+  devops: .agents/agents/devops-agent.md
+  project_coordinator: .agents/agents/project-coordinator-agent.md
+
+workflows:
+  idea_to_release: .agents/workflows/idea-to-release.md
+  bug_fix_cycle: .agents/workflows/bug-fix-cycle.md
+  feature_enhancement: .agents/workflows/feature-enhancement-flow.md
+  parallel_agent_execution: .agents/workflows/parallel-agent-execution.md
+
+memory:
+  tasks: .agents/memory/tasks.yaml
+  locks: .agents/memory/coordination/locks.yaml
+  progress: .agents/memory/progress.md
+  knowledge: .agents/memory/knowledge.md
+  decisions: .agents/memory/decisions
+  evolution_log: .agents/memory/evolution-log.md
+
+quality_gates:
+  require_source_test_pair: true
+  require_acceptance_criteria_before_implementation: true
+  require_decision_record_for_architecture_change: true
+  require_review_before_done: true

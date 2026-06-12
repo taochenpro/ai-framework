@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+set -eu
+
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+cd "$ROOT"
+
+workflow="${1:-}"
+task_id="${2:-unassigned}"
+
+case "$workflow" in
+  idea-to-release)
+    workflow_file=".agents/workflows/idea-to-release.md"
+    ;;
+  bug-fix-cycle)
+    workflow_file=".agents/workflows/bug-fix-cycle.md"
+    ;;
+  feature-enhancement)
+    workflow_file=".agents/workflows/feature-enhancement-flow.md"
+    ;;
+  parallel)
+    workflow_file=".agents/workflows/parallel-agent-execution.md"
+    ;;
+  *)
+    echo "usage: .agents/hooks/agent-trigger {idea-to-release|bug-fix-cycle|feature-enhancement|parallel} [task-id]" >&2
+    exit 1
+    ;;
+esac
+
+mkdir -p .agents/memory
+timestamp="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+
+{
+  echo ""
+  echo "## $timestamp"
+  echo "- Workflow: $workflow"
+  echo "- Workflow file: $workflow_file"
+  echo "- Task: $task_id"
+} >> .agents/memory/workflow-runs.md
+
+echo "agent-trigger: recorded $workflow for $task_id"
+echo "agent-trigger: follow $workflow_file"

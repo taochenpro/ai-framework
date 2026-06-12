@@ -4,21 +4,21 @@ This repository is a reusable meta-framework for AI-assisted software projects. 
 
 ## Folder Structure
 
-- `agents/` - Agent contracts. Each file defines one agent's role, inputs, outputs, responsibilities, constraints, and collaboration rules.
-- `skills/` - Reusable capability playbooks that agents can apply across projects, such as TDD, architecture design, review, DevOps, UI design, and self-improvement.
-- `workflows/` - Multi-agent execution flows. These describe step-by-step handoffs for product work, bug fixes, enhancements, releases, and parallel execution.
-- `hooks/` - Automation entrypoints for Git hooks, CI checks, and agent-triggered workflows. Project-specific commands are configured in `config/automation.env`.
-- `memory/` - Shared state for all agents: task status, progress logs, decisions, coordination locks, project knowledge, and evolution history.
-- `docs/` - Human-readable requirements, architecture, testing strategy, folder structure, and release artifacts.
-- `src/` - Application code for the concrete project using this framework.
-- `tests/` - Unit, integration, end-to-end, fixtures, and test case templates for meaningful verification.
-- `config/` - Framework and automation configuration.
-- `meta/` - Self-improvement logic, retrospectives, skill change proposals, and quality metrics.
-- `.github/workflows/` - CI entrypoint that delegates to the framework CI hook.
+.agents/agents/ - Agent contracts. Each file defines one agent's role, inputs, outputs, responsibilities, constraints, and collaboration rules.
+.agents/skills/ - Reusable capability playbooks that agents can apply across projects, such as TDD, architecture design, review, DevOps, UI design, and self-improvement.
+.agents/workflows/ - Multi-agent execution flows. These describe step-by-step handoffs for product work, bug fixes, enhancements, releases, and parallel execution.
+.agents/hooks/ - Automation entrypoints for Git hooks, CI checks, and agent-triggered workflows. Project-specific commands are configured in `.agents/config/automation.env`.
+.agents/memory/ - Shared state for all agents: task status, progress logs, decisions, coordination locks, project knowledge, and evolution history.
+.agents/docs/ - Human-readable requirements, architecture, testing strategy, folder structure, and release artifacts.
+.agents/src/ - Application code for the concrete project using this framework.
+.agents/tests/ - Unit, integration, end-to-end, fixtures, and test case templates for meaningful verification.
+.agents/config/ - Framework and automation configuration.
+.agents/meta/ - Self-improvement logic, retrospectives, skill change proposals, and quality metrics.
+.agents/.github/workflows/ - CI entrypoint that delegates to the framework CI hook.
 
 ## Agent System
 
-Use the files in `agents/` as the source of truth for agent behavior.
+Use the files in `.agents/agents/` as the source of truth for agent behavior.
 
 - Product Requirements Agent - Converts ideas into clear requirements, user stories, constraints, and acceptance criteria.
 - System Architect Agent - Produces architecture, technical decisions, interface boundaries, and risk analysis.
@@ -34,12 +34,12 @@ Agents are specialized roles, not isolated workers. A single LLM can act as mult
 
 Agents communicate through shared artifacts instead of private assumptions:
 
-- Tasks and ownership live in `memory/tasks.yaml`.
-- Active file or domain locks live in `memory/coordination/locks.yaml`.
-- Delivery updates live in `memory/progress.md`.
-- Architecture and policy decisions live in `memory/decisions/`.
-- Durable project knowledge lives in `memory/knowledge.md`.
-- Requirements and technical artifacts live in `docs/`.
+.agents/memory/tasks.yaml - Tasks and ownership live here.
+.agents/memory/coordination/locks.yaml - Active file or domain locks live here.
+.agents/memory/progress.md - Delivery updates live here.
+.agents/memory/decisions/ - Architecture and policy decisions live here.
+.agents/memory/knowledge.md - Durable project knowledge lives here.
+.agents/docs/ - Requirements and technical artifacts live here.
 
 An agent must update the relevant memory file when it changes task status, discovers a material constraint, makes a decision, or hands work to another agent.
 
@@ -56,11 +56,11 @@ Use these states consistently in `memory/tasks.yaml`:
 
 ## Standard Execution Order
 
-Use the workflow files in `workflows/` for details. The default product flow is:
+Use the workflow files in `.agents/workflows/` for details. The default product flow is:
 
-1. Product Requirements Agent captures scope in `docs/requirements.md`.
-2. Project Coordinator Agent creates or updates tasks in `memory/tasks.yaml`.
-3. System Architect Agent updates `docs/architecture.md` and records decisions.
+1. Product Requirements Agent captures scope in `.agents/docs/requirements.md`.
+2. Project Coordinator Agent creates or updates tasks in `.agents/memory/tasks.yaml`.
+3. System Architect Agent updates `.agents/docs/architecture.md` and records decisions.
 4. Test Engineer Agent defines the first failing tests or test plan.
 5. Developer Agent implements the smallest useful slice.
 6. Test Engineer Agent verifies meaningful behavior and risk coverage.
@@ -118,7 +118,7 @@ Avoid low-value tests:
 - Snapshot tests with broad, noisy output and weak assertions.
 - Coverage-only tests that do not protect meaningful behavior.
 
-Source changes under `src/` should usually include tests under `tests/`. The pre-commit hook enforces this by default and can be adjusted in `config/automation.env`.
+Source changes under `.agents/src/` should usually include tests under `.agents/tests/`. The pre-commit hook enforces this by default and can be adjusted in `.agents/config/automation.env`.
 
 ## Progress Tracking Rules
 
@@ -141,11 +141,11 @@ Agents may work in parallel only when their task boundaries are clear.
 
 ## Automation Rules
 
-- Configure project commands in `config/automation.env` by copying from `config/automation.env.example`.
-- Use `hooks/pre-commit` for local quality gates.
-- Use `hooks/post-commit` to append commit summaries to `memory/progress.md`.
-- Use `hooks/ci-check` as the shared CI entrypoint.
-- Use `hooks/agent-trigger` to log workflow starts and point agents to the right workflow file.
+.agents/config/automation.env - Configure project commands by copying from `.agents/config/automation.env.example`.
+.agents/hooks/pre-commit - Use for local quality gates.
+.agents/hooks/post-commit - Append commit summaries to `.agents/memory/progress.md`.
+.agents/hooks/ci-check - Shared CI entrypoint.
+.agents/hooks/agent-trigger - Log workflow starts and point agents to the right workflow file.
 - Keep hooks thin. Put project-specific behavior in config or project-native scripts.
 
 ## Self-Evolution Rules
